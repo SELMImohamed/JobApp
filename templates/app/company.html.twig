@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formCompany 'bootstrap_5_layout.html.twig'%}
+
+{% block body %}
+
+	<h1>Créer mon entreprise</h1>
+	{{form_start(formCompany)}}
+
+	{{form_row(formCompany.nomEntreprise, {'attr' : {'placeholder': "Nom de votre entreprise"}})}}
+	{{form_row(formCompany.secteur, {'attr' : {'placeholder': "Secteur d'activité de votre entreprise"}})}}
+
+	<button type"submit" class="btn btn-success">Enregistrer</button>
+	{{form_end(formCompany)}}
+
+{% endblock %}
