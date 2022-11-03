@@ -41,7 +41,7 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route("/create/company", name = "create_company")
+     * @Route("/company/create", name = "create_company")
      */
 
     public function createCompany(Request $request, ManagerRegistry $managerRegistry)
