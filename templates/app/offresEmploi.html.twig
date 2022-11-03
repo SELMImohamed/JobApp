@@ -2,10 +2,11 @@
 
 
 {% block body %}
-
-<h1>
-	Job Offers
-</h1>
+<br>
+	<h1>
+		Job Offers
+	</h1>
+</br>
 
 <section class="jobs">
 
@@ -16,6 +17,7 @@
 				<h4 class="card-title">{{ job.nomOffre }}</h2>
 			</h4>
 			<p class="card-text">{{ job.description }}</p>
+			<p class="card-text">{{ job.criteres }}</p>
 		</h2>
 	</p>
 </div></div>{% endfor %}</section>{% endblock %}
