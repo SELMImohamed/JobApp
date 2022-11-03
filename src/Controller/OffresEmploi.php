@@ -17,6 +17,11 @@ class OffresEmploi extends AbstractController
     public function offresEmploi()
     {
         $repo = $this->getDoctrine()->getRepository()(Job::class);
-        return $this->render('app/offresEmploi.html.twig');
+        $job = $repo->findAll();
+
+
+        return $this->render('app/offresEmploi.html.twig', [
+            'job' => $job
+        ]);
     }
 }
