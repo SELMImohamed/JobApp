@@ -6,6 +6,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Job;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Persistence\ManagerRegistry;
+
 
 
 class OffresEmploi extends AbstractController
@@ -14,14 +17,12 @@ class OffresEmploi extends AbstractController
      * @Route("/offresEmploi", name = "offres_emploi")
      */
 
-    public function offresEmploi()
+    public function offresEmploi(ManagerRegistry $doctrine): Response
     {
-        $repo = $this->getDoctrine()->getRepository()(Job::class);
-        $job = $repo->findAll();
-
+        $repository = $doctrine->getRepository(Job::class)->find(2);
 
         return $this->render('app/offresEmploi.html.twig', [
-            'job' => $job
+            'job' => $repository
         ]);
     }
 }

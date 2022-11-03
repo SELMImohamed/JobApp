@@ -9,10 +9,10 @@
 
 	<section class="jobs">
 
-		{% for job in jobs %}
+		{% for job in job %}
 			<jobs>
-				<h2>Titre du job</h2>
-				<p>Ceci est une offre d'emploi</p>
+				<h2>
+					{{ job.nomOffre }}</h2>
 			</jobs>
 		{% endfor %}
 
