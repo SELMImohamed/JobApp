@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
+
 	<h1>
 		Salut
 	</h1>
 
 	<section class="jobs">
-	
-		<jobs>
-			<h2>Titre du job</h2>
+
+		{% for job in jobs %}
+			<jobs>
+				<h2>Titre du job</h2>
+				<p>Ceci est une offre d'emploi</p>
+			</jobs>
+		{% endfor %}
+
+	</section>
 
 {% endblock %}
