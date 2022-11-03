@@ -8,10 +8,10 @@
     <section class="recrut">
 
         {% for entreprise in entreprises %}
-        <div class="card text-white bg-primary mb-4" style="max-width: 30rem;">
+        <div class="card text-white bg-primary mb-4" style="max-width: 25rem;">
             <div class="card-header">{{ entreprise.nomEntreprise }}</div>
             <div class="card-body">
-                <h4 class="card-title">{{ entreprise.secteur }}</h4>
+                <h4 class="card-title">Secteur : {{ entreprise.secteur }}</h4>
             </div>
         </div>
         {% endfor %}
