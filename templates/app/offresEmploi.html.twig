@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<br>
+	<h1>
+		Job Offers
+	</h1>
+</br>
+
+<section class="jobs">
+
+	{% for job in job %}
+		<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+			<div class="card-header">Nom de l'entreprise</div>
+			<div class="card-body">
+				<h4 class="card-title">{{ job.nomOffre }}</h2>
+			</h4>
+			<p class="card-text">{{ job.description }}</p>
+			<p class="card-text">{{ job.criteres }}</p>
+		</h2>
+	</p>
+</div></div>{% endfor %}</section>{% endblock %}
