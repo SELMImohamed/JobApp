@@ -12,9 +12,15 @@ class JobFixtures extends Fixture
     {
         for ($i = 0; $i <= 10; $i++) {
             $job = new Job();
+            $job->setIdEntreprise(1)
+                ->setDate(new \DateTime())
+                ->setNomOffre("Offre numero $i")
+                ->setDescription("ceci est une offre")
+                ->setCriteres("mysql php reactjs");
+
+            $manager->persist($job);
         }
-        // $product = new Product();
-        // $manager->persist($product);
+
         $manager->flush();
     }
 }
