@@ -19,7 +19,7 @@ class OffresEmploi extends AbstractController
 
     public function offresEmploi(ManagerRegistry $doctrine): Response
     {
-        $repository = $doctrine->getRepository(Job::class)->find(2);
+        $repository = $doctrine->getRepository(Job::class)->findAll();
 
         return $this->render('app/offresEmploi.html.twig', [
             'job' => $repository

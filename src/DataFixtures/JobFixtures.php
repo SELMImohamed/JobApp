@@ -32,7 +32,7 @@ class JobFixtures extends Fixture
         $job = new Job();
         $job->setIdEntreprise(3)
             ->setDate(new \DateTime())
-            ->setNomOffre("Développeur Front")
+            ->setNomOffre("Développeur FullStack")
             ->setDescription("Nous recherchons un développeur fullstack pour travailler avec notre équipe")
             ->setCriteres("Javascript - ReactJS - NodeJS - Python");
 

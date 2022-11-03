@@ -3,19 +3,19 @@
 
 {% block body %}
 
-	<h1>
-		Salut
-	</h1>
+<h1>
+	Job Offers
+</h1>
 
-	<section class="jobs">
+<section class="jobs">
 
-		{% for job in job %}
-			<jobs>
-				<h2>
-					{{ job.nomOffre }}</h2>
-			</jobs>
-		{% endfor %}
-
-	</section>
-
-{% endblock %}
+	{% for job in job %}
+		<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+			<div class="card-header">Nom de l'entreprise</div>
+			<div class="card-body">
+				<h4 class="card-title">{{ job.nomOffre }}</h2>
+			</h4>
+			<p class="card-text">{{ job.description }}</p>
+		</h2>
+	</p>
+</div></div>{% endfor %}</section>{% endblock %}
