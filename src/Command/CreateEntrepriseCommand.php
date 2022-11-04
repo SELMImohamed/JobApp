@@ -30,8 +30,7 @@ class CreateEntrepriseCommand extends Command
     {
         $this
             ->addOption('nameentreprise', null, InputOption::VALUE_REQUIRED, 'Name of Entreprise')
-            ->addOption('secteurentreprise', null, InputOption::VALUE_REQUIRED, 'Sector of Entreprise')
-        ;
+            ->addOption('secteurentreprise', null, InputOption::VALUE_REQUIRED, 'Sector of Entreprise');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -47,7 +46,7 @@ class CreateEntrepriseCommand extends Command
         $this->em->persist($nameentreprise);
         $this->em->flush();
 
-        $output->write("L'entreprise a bien été créer");
+        $output->write("L'entreprise a bien été créée !");
 
         return Command::SUCCESS;
     }

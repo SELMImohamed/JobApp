@@ -14,14 +14,14 @@ use Doctrine\Persistence\ManagerRegistry;
 class JobOfferController extends AbstractController
 {
     /**
-     * @Route("/offresEmploi", name = "offres_emploi")
+     * @Route("/offers/list", name = "list_job_offers")
      */
 
-    public function offresEmploi(ManagerRegistry $doctrine): Response
+    public function jobOffers(ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Job::class)->findAll();
 
-        return $this->render('app/offresEmploi.html.twig', [
+        return $this->render('app/jobOffers.html.twig', [
             'job' => $repository
         ]);
     }
@@ -50,10 +50,10 @@ class JobOfferController extends AbstractController
             $em->persist($job);
             $em->flush();
 
-            return $this->redirectToRoute('offres_emploi');
+            return $this->redirectToRoute('list_job_offers');
         };
 
-        return $this->render('app/job.html.twig', [
+        return $this->render('app/jobcreate.html.twig', [
             'formJob' => $form->createView()
         ]);
     }

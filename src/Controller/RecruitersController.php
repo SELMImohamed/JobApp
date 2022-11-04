@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class RecruitersController extends AbstractController
 {
     /**
-     * @Route("/recrut", name="recruteur")
+     * @Route("/company/list", name="recruteur")
      */
 
     public function index(ManagerRegistry $doctrine): Response
