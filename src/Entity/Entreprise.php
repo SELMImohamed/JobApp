@@ -14,10 +14,10 @@ class Entreprise
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nomEntreprise = null;
+    private ?string $nomEntreprise = '';
 
     #[ORM\Column(length: 255)]
-    private ?string $secteur = null;
+    private ?string $secteur = '';
 
     public function getId(): ?int
     {
