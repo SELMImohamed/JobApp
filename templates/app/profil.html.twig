@@ -1,1 +1,19 @@
 {% extends 'base.html.twig' %}
+
+{% form_theme formProfile 'bootstrap_5_layout.html.twig'%}
+
+{% block body %}
+
+	<h1>Créer mon profil</h1>
+	{{form_start(formProfile)}}
+
+	{{form_row(formProfile.name_profile, {'attr' : {'placeholder': "Votre nom"}})}}
+	{{form_row(formProfile.surname_profile, {'attr' : {'placeholder': "Votre prénom"}})}}
+	{{form_row(formProfile.age, {'attr' : {'placeholder': "Votre âge"}})}}
+	{{form_row(formProfile.career, {'attr' : {'placeholder': "Votre dernier diplôme"}})}}
+	{{form_row(formProfile.skill_profile, {'attr' : {'placeholder': "Compétences"}})}}
+
+	<button type"submit" class="btn btn-success">Enregistrer</button>
+	{{form_end(formProfile)}}
+
+{% endblock %}

@@ -3,12 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Entreprise;
+use App\Entity\Profile;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 
 class AppController extends AbstractController
@@ -32,12 +31,50 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route("/profil", name = "profil")
+     * @Route("/create/profil", name = "create_profil")
      */
 
-    public function profil()
+    public function createProfile(Request $request, ManagerRegistry $managerRegistry)
     {
-        return $this->render('app/profil.html.twig');
+        $profile = new Profile();
+
+        $form = $this->createFormBuilder($profile)
+            ->add('name_profile')
+            ->add('surname_profile')
+            ->add('age')
+            ->add('career')
+            ->add(
+                'skill_profile',
+                ChoiceType::class,
+                [
+                    'choices' => [
+                        'Html' => "HTML",
+                        'Css' => "CSS",
+                        'Javascript' => "Javascript",
+                        'ReactJs' => "ReactJS",
+                        'Flutter' => "Flutter",
+                        'Symfony' => "Symfony",
+                        'Laravel' => "Laravel",
+                        'SwiftUi' => "SwiftUI",
+                        'Php' => "PHP",
+                    ]
+                ]
+            )
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $managerRegistry->getManager();
+            $em->persist($profile);
+            $em->flush();
+
+            return $this->redirectToRoute('home');
+        };
+
+        return $this->render('app/profil.html.twig', [
+            'formProfile' => $form->createView()
+        ]);
     }
 
     /**
