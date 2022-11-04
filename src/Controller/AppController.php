@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Entreprise;
 use App\Entity\Profile;
+use App\Entity\Job;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -69,7 +70,7 @@ class AppController extends AbstractController
             $em->persist($profile);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('profile');
         };
 
         return $this->render('app/profil.html.twig', [
@@ -98,11 +99,43 @@ class AppController extends AbstractController
             $em->persist($company);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('recruteur');
         };
 
         return $this->render('app/company.html.twig', [
             'formCompany' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/job/create", name = "create_job")
+     */
+
+    public function createJob(Request $request, ManagerRegistry $managerRegistry)
+    {
+        $job = new Job();
+
+        $form = $this->createFormBuilder($job)
+            ->add('IdEntreprise')
+            ->add('NomOffre')
+            ->add('Description')
+            ->add('Criteres')
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $job->setDate(new \DateTime());
+
+            $em = $managerRegistry->getManager();
+            $em->persist($job);
+            $em->flush();
+
+            return $this->redirectToRoute('offres_emploi');
+        };
+
+        return $this->render('app/job.html.twig', [
+            'formJob' => $form->createView()
         ]);
     }
 }

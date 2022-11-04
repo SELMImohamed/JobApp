@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formJob 'bootstrap_5_layout.html.twig'%}
+
+{% block body %}
+
+	<h1>Créer mon offre</h1>
+	{{form_start(formJob)}}
+
+	{{form_row(formJob.IdEntreprise, {'attr' : {'placeholder': "Nom de l'entreprise"}})}}
+	{{form_row(formJob.NomOffre, {'attr' : {'placeholder': "Date de l'offre"}})}}
+	{{form_row(formJob.Description, {'attr' : {'placeholder': "Description de l'offre"}})}}
+	{{form_row(formJob.Criteres, {'attr' : {'placeholder': "Critères de l'offre"}})}}
+
+	<button type"submit" class="btn btn-success">Enregistrer</button>
+	{{form_end(formJob)}}
+
+{% endblock %}

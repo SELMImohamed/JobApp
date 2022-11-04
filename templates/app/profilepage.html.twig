@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<br>
+	<h1>
+		Profils créés
+	</h1>
+</br>
+
+<section class="profiles">
+
+	{% for profile in profil %}
+		<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+			<div class="card-header">Utilisateur</div>
+			<div class="card-body">
+				<h4 class="card-title">{{ profile.nameProfile }}</h2>
+			</h4>
+			<p class="card-text">{{ profile.surnameProfile }}</p>
+			<p class="card-text">{{ profile.age }}</p>
+			<p class="card-text">{{ profile.career }}</p>
+			<p class="card-text">{{ profile.skillProfile }}</p>
+		</h2>
+	</p>
+</div></div>{% endfor %}</section>{% endblock %}
