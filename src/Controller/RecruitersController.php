@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ControllerRecrut extends AbstractController
+class RecruitersController extends AbstractController
 {
     /**
      * @Route("/recrut", name="recruteur")
